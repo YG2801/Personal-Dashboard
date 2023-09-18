@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DashBlend</title>
+    <link
+      rel="shortcut icon"
+      href="/assets/house-user-solid.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/dist/output.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="poppins selection:bg-transparent">
+    <div
+      class="flex h-screen w-screen flex-col justify-between bg-gray-900 bg-cover bg-center bg-no-repeat p-2 text-gray-100 transition-all"
+      id="main-bg"
+    >
+      <header class="flex h-1/3 justify-between">
+        <div class="w-1/3 p-3" id="crypto-section"></div>
+        <div class="relative w-1/3 p-2">
+          <div class="text-center">
+            <input
+              type="text"
+              name="city-name"
+              id="city-name-input"
+              class="w-3/5 rounded-full bg-blue-50 px-4 py-2 text-lg font-semibold text-gray-900 opacity-90 outline-none placeholder:text-slate-500"
+              placeholder="Enter City Name"
+            />
+            <button
+              class="ml-3 rounded-lg bg-blue-950 px-4 py-2 text-lg font-semibold hover:opacity-90 active:scale-95"
+              id="city-name-submit"
+            >
+              SEARCH
+            </button>
+          </div>
+          <div class="mt-4 flex items-center justify-center">
+            <img src="" alt="" id="weather-icon" />
+            <h2
+              class="text-outline-light text-4xl font-semibold drop-shadow-[0_5px_3px_rgba(255,255,255,0.25)] transition-all"
+              id="temp-main"
+            >
+              ? °C
+            </h2>
+            <i
+              class="text-outline-light fa-solid fa-chevron-down fa-bounce ml-8 cursor-pointer text-3xl transition-all"
+              style="color: #e9eaed"
+              id="card-arrow"
+            ></i>
+          </div>
+          <div
+            id="weather-card"
+            class="invisible absolute left-0 right-0 top-0 ml-auto mr-auto h-[220px] w-[320px] translate-y-0 rounded-xl bg-gray-600/50 p-6 opacity-0 transition-all duration-500"
+          >
+            <p class="text-2xl font-semibold leading-10">No Data Available</p>
+          </div>
+        </div>
+      </header>
+      <main class="relative flex h-1/2 flex-col items-center">
+        <h1
+          class="text-outline text-8xl font-semibold tracking-wide drop-shadow-[0_5px_3px_rgba(255,255,255,0.25)] transition-all"
+          id="time"
+        ></h1>
+        <div class="mt-6 flex max-w-[90%] flex-col text-center">
+          <h3
+            class="dancing-script text-outline-light text-5xl font-bold tracking-wider drop-shadow-[0_5px_3px_rgba(255,255,255,0.25)] transition-all"
+            id="quote"
+          ></h3>
+          <p
+            class="text-outline-light mt-3 text-right font-semibold drop-shadow-[0_5px_3px_rgba(255,255,255,0.25)] transition-all selection:bg-slate-700"
+            id="quote-author"
+          ></p>
+        </div>
+        <p
+          class="text-outline-light absolute left-3 top-6 text-3xl font-semibold leading-10 drop-shadow-[0_5px_3px_rgba(255,255,255,0.25)]"
+        >
+          News
+          <i
+            class="fa-solid fa-circle-arrow-right fa-shake ml-3 cursor-pointer text-2xl active:scale-95"
+            style="color: #e8eaec"
+            id="news-section-open-icon"
+          ></i>
+        </p>
+      </main>
+      <footer class="p-5">
+        <p
+          class="text-outline-light text-lg font-semibold drop-shadow-[0_5px_3px_rgba(255,255,255,0.25)] transition-all selection:bg-slate-700"
+          id="photo-author"
+        ></p>
+      </footer>
+    </div>
+    <div
+      id="news-section"
+      class="invisible fixed left-0 top-0 z-10 h-screen w-1/3 -translate-x-[50%] overflow-auto bg-gray-600 p-4 text-gray-50 opacity-0 transition-all duration-500"
+    >
+      <div class="flex items-center justify-between">
+        <h2
+          class="text-4xl font-bold drop-shadow-[0_5px_3px_rgba(255,255,255,0.25)] transition-all"
+        >
+          Worldwide News
+        </h2>
+        <i
+          class="fa-solid fa-circle-arrow-left cursor-pointer text-2xl active:scale-95"
+          style="color: #e8eaec"
+          id="news-section-close-icon"
+        ></i>
+      </div>
+      <div class="mt-4" id="news-cards">
+        <p class="text-2xl font-semibold leading-10">No Data Available</p>
+      </div>
+    </div>
+    <script src="script.js" type="module"></script>
+    <script src="utility.js" type="module"></script>
+    <script src="/api.js" type="module"></script>
+  </body>
+</html>
